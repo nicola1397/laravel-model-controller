@@ -1,11 +1,23 @@
 @extends('layouts.app')
 
-@section('title', 'Pagina iniziale')
+@section('page_title', 'Home')
 
-@section('main-content')
-  <section>
-    <div class="container py-4">
-      <h1>Laravel with Bootstrap + Vite</h1>
+@section('main')
+    <div class="container mt-4">
+        <div class="row g-3">
+            @forelse ($movies as $movie)
+                <div class="col-6">
+                    <div class="card h-100 movie-card">
+                        <div class="card-body">
+                            <a href="">
+                                <h2 class="fs-3 fw-bold">{{ $movie->title }}</h2>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            @empty
+                Nessun Film 
+            @endforelse
+        </div>
     </div>
-  </section>
 @endsection
